@@ -3,6 +3,7 @@ Collect Magecart references from twitter and send them to a Slack channel.
 
 ## Installation
 >git clone git@github.com:ctrl-escp/magecart-twitter-bot.git;
+>cd magecart-twitter-bot;
 >git submodule update --init --recursive;
 >git submodule foreach --recursive python3 -m pip install -r requirements.txt;
 
