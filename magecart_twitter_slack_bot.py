@@ -25,7 +25,7 @@ def main(args):
 		sn = SlackNotifier(args.slack_token)
 		for kw in tbks:
 			for tweet in tbks[kw]:
-				sn.post_message(args.target_cid, f"{tweet['text']}\n\n{tweet['url']}")
+				sn.post_message(args.target_cid, f"{tweet['text']}\n<{tweet['url']}|Link to tweet>", True)
 				published_counter += 1
 
 	if published_counter:
