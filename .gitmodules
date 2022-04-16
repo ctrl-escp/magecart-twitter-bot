@@ -1,0 +1,6 @@
+[submodule "slackNotifier"]
+	path = slackNotifier
+	url = git@github.com:ctrl-escp/slackNotifier.git
+[submodule "TwitterBot"]
+	path = TwitterBot
+	url = git@github.com:ctrl-escp/TwitterBot.git
