@@ -1,3 +1,4 @@
+import re
 from datetime import datetime
 from argparse import ArgumentParser
 from TwitterBot.tb import TwitterBot
@@ -23,9 +24,11 @@ def main(args):
 	published_counter = 0
 	if tbks:
 		sn = SlackNotifier(args.slack_token)
+		url_regex = re.compile(r"https?://t\.co/\S+")
 		for kw in tbks:
 			for tweet in tbks[kw]:
-				sn.post_message(args.target_cid, f"{tweet['text']}\n<{tweet['url']}|Link to tweet>", True)
+				clean_tweet = url_regex.sub("<link removed>", tweet['text']).strip()
+				sn.post_message(args.target_cid, f"{clean_tweet}\n<{tweet['url']}|Link to tweet>", True)
 				published_counter += 1
 
 	if published_counter:
